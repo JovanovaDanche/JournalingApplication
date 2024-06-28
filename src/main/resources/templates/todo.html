@@ -132,6 +132,17 @@
 
 <script src="/js/script.js"></script>
 <script src="/js/popUp.js"></script>
+<script th:inline="javascript">
+    document.addEventListener('DOMContentLoaded', function () {
+        var dueDateTimeInput = document.getElementById('dueDateTime');
+        if (!dueDateTimeInput.value) {
+            var now = new Date();
+            var formattedDateTime = now.getFullYear() + '-' + ('0' + (now.getMonth() + 1)).slice(-2) + '-' + ('0' + now.getDate()).slice(-2) +
+                'T' + ('0' + now.getHours()).slice(-2) + ':' + ('0' + now.getMinutes()).slice(-2);
+            dueDateTimeInput.value = formattedDateTime;
+        }
+    });
+</script>
 
 </body>
 
